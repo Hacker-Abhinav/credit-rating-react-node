@@ -1,0 +1,37 @@
+server {
+	server_name 4i-docs.cognitensor.in;
+	root /home/cogadmin/4i-docs.cognitensor.in;
+	index index.php index.html;
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+	}
+
+	location ~ /\.ht {
+		deny all;
+	}
+
+
+	listen [::]:443 ssl ipv6only=on; 
+	listen 443 ssl; 
+	ssl_certificate /etc/letsencrypt/live/4i-docs.cognitensor.in/fullchain.pem; 
+	ssl_certificate_key /etc/letsencrypt/live/4i-docs.cognitensor.in/privkey.pem; 
+	include /etc/letsencrypt/options-ssl-nginx.conf; 
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; 
+}
+
+server {
+	if ($host = 4i-docs.cognitensor.in) {
+		return 301 https://$host$request_uri;
+	} 
+
+	listen 80 ;
+	listen [::]:80 ;
+	server_name 4i-docs.cognitensor.in;
+	return 404;
+}

@@ -1,0 +1,180 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Agenda Document
+  style.
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial';
+    }
+    .comp-name{
+      margin: auto; 
+      text-align: center;
+      font-weight: 800;
+    }
+    .fat-text{
+      letter-spacing: -3px;
+    }
+    .sm{
+      font-size: 14pt ;
+      font-family: Cambria, serif;
+      margin-right: 1rem
+      
+    }
+    .lg{
+      margin-right: 0;
+      font-family: Cambria, serif;
+      font-size: 19pt;
+    }
+    .ql-align-center{
+      text-align: center;
+    }
+    .company-data{
+      font-size: 12pt;
+       font-family: Cambria, serif;
+    }
+    .cin{
+      font-weight: 600;
+    }
+    .link{
+      font-size: 12pt;
+      font-family: Cambria, serif;
+      color: rgb(5, 99, 193);
+      margin-left: 0.4rem;
+    }
+    u{
+      font-size: 12pt ;
+      font-family: &quot,Times New Roman&quot;
+      font-weight: 600;
+    }
+    .ql-align-justify{
+      margin: -1rem 1rem 0rem 1rem;
+    }
+    .agenda-details{
+      font-size: 12pt ;
+      font-family: &quot,Times New Roman&quot;
+      width: 80%;
+      display: block;
+      margin: auto;
+      font-weight: 600
+    }
+    h2 {
+      color: red;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    p {
+      color: #111;
+    }
+    .table-div{
+      overflow-x: auto;
+      margin: 1rem
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid black;
+      border-spacing: 0;
+    }
+    thead {
+      color: #111;
+      height: 25px;
+    }
+    .main-table-heading{
+      text-align: center ;
+    }
+    th, td{
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+    .entity-name{
+      font-weight: 600;
+    }
+    .date{
+      margin: 1rem;
+      font-weight: 600;
+    }
+
+
+
+body 
+
+  p(class="comp-name") 
+    span(class="lg") I
+    span(class="sm") NFOMERICS 
+    span(class="lg fat-text") V 
+    span(class="sm") ALUATION
+    span(class="sm") AND   
+    span(class="lg fat-text") R 
+    span(class="sm") ATING   
+    span(class="lg") P
+    span(class="sm") RIVATE   
+    span(class="lg") L
+    span(class="sm") IMITED   
+
+  p(class="ql-align-center")
+    span(class="company-data") Head Office-Flat No. 104/106/108, Golf Apartments, Sujan Singh Park, 
+  p(class="ql-align-center")
+    span(class="company-data") &nbsp;New Delhi-110003,
+  p(class="ql-align-center")
+    span(class="company-data") Email:
+    a(class="link" rel="noreferrer" href="mailto:vma@infomerics.com" target="_blank") vma@infomerics.com
+    span(class="company-data") , Website:
+    a(class="link" rel="noreferrer" href="https://www.infomerics.com/" target="_blank") https://www.infomerics.com
+  p(class="ql-align-center")
+    span(class="company-data") Phone: +91-11 24601142, 24611910, Fax: +91 11 24627549
+  p(class="ql-align-center")
+    span(class="company-data cin") (CIN: #{cin})
+  br
+  p(class="ql-align-center")
+    u AGENDA
+  br
+  br
+  p(class="ql-align-justify")
+    span(class="agenda-details")
+      |  Agenda for 91st Rating Committee Meeting (RCM) for the Financial Year 2022- 2023 of Infomerics Valuation and Rating Private Limited to be held on Monday, 06th March 2023 at 4:00 pm through video conference.
+  br
+
+  div(class='table-div') 
+    table
+      thead  
+        tr
+          th(class="main-table-heading" colspan=6) Agenda
+        tr 
+          th A
+          th(colspan=5 ) To confirm the minutes of the 89th Committee meeting held on 01st March 2023.
+        tr 
+          th B
+          th(colspan=5) To consider following proposal for rating: -
+        tr
+          th 
+          th S. No.
+          th Name of the Entity
+          th Instrument / Facility
+          th Size (Rs. crore)
+          th Nature of Assignment
+      tbody
+        each company, key in data
+          tr
+            td 
+            td(class="entity-name") #{key + 1}.
+            td(class="entity-name") #{company.name_of_entity }
+            td #{company.instrument_facility}
+            td #{company.size}
+            td #{company.nature_of_assignments}
+  p(class="date") Date:  06th March 2023
+
+
+
+  script
+      //- | var species = !{JSON.stringify(stream.species)};
+      //- | var fields = [];
+      //- | for (var key in species) fields.push(key)
+      | let d = Object.fromEntries(#{data});
+      | console.log(d, "data")

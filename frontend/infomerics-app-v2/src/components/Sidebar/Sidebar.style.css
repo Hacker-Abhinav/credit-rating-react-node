@@ -1,0 +1,10 @@
+.sidebar__title {
+  color: #999;
+  margin: 5px 10px;
+  text-transform: uppercase;
+}
+
+.sidebar__path {
+  text-decoration: none;
+  color: #000;
+}

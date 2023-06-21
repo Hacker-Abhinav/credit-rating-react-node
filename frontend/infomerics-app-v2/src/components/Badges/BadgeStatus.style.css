@@ -1,0 +1,16 @@
+.badge {
+  padding: 5px 7px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-active {
+  background: green;
+  color: #fff;
+}
+
+.badge-in_active {
+  background: red;
+  color: #fff;
+}
