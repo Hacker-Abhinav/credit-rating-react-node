@@ -19,9 +19,9 @@ async function base_routes (fastify, options) {
 
     return reply.send({
       "api": "v1",
-      "name": "4i-concept-dashboard-api",
-      "developed_for": "informerics",
-      "developed_by": "cognitensor",
+      "name": "trading-assist",
+      "developed_for": "abhinav",
+      "developed_by": "abhinav",
     });
   });
 }
